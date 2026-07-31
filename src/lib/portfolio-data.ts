@@ -3,67 +3,139 @@ export const NAV_LINKS = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
+  { id: "achievements", label: "Achievements" },
   { id: "timeline", label: "Timeline" },
   { id: "certifications", label: "Certifications" },
   { id: "contact", label: "Contact" },
 ];
 
 export const STATS = [
-  { value: "9.32", label: "Academic Grade (CGPA)" },
-  { value: "3+", label: "Completed Internships" },
-  { value: "10+", label: "Innovative Projects" },
-  { value: "46", label: "Earned Credentials" },
+  { value: "9.32", label: "CGPA — B.Tech CSE" },
+  { value: "3", label: "Internships completed" },
+  { value: "10+", label: "Engineering projects" },
+  { value: "46", label: "Verified credentials" },
 ];
 
-export const SKILL_MODULES = [
+/** Horizontal running skill rows — grouped so each marquee row reads coherently. */
+export const SKILL_ROWS: { direction: "left" | "right"; items: string[] }[] = [
   {
-    module: "MODULE 1",
-    title: "Frontend Architecture",
-    skills: [
-      { name: "React / Next.js", level: 95 },
-      { name: "TypeScript", level: 92 },
-      { name: "Tailwind CSS", level: 98 },
-      { name: "Framer Motion", level: 90 },
-      { name: "WebGL / Three.js", level: 78 },
+    direction: "left",
+    items: ["Python", "Java", "C", "MySQL", "JavaScript", "SQL Queries", "OOP", "DSA"],
+  },
+  {
+    direction: "right",
+    items: [
+      "Frontend Development",
+      "HTML5",
+      "CSS3",
+      "React.js",
+      "Responsive UI",
+      "Backend Development",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
     ],
   },
   {
-    module: "MODULE 2",
-    title: "Backend & Systems",
-    skills: [
-      { name: "Node.js (Express/NestJS)", level: 88 },
-      { name: "GraphQL & REST APIs", level: 90 },
-      { name: "PostgreSQL / Redis", level: 85 },
-      { name: "Docker & Kubernetes", level: 80 },
-      { name: "Cloud Architecture (GCP/AWS)", level: 82 },
+    direction: "left",
+    items: [
+      "Machine Learning",
+      "Computer Vision",
+      "OpenCV",
+      "Data Science",
+      "NumPy",
+      "Pandas",
+      "Git",
+      "GitHub",
+      "Linux",
+      "Docker",
+      "VS Code",
+      "Postman",
     ],
   },
+];
+
+export const SKILL_GROUPS = [
   {
-    module: "MODULE 3",
-    title: "Design & Practices",
-    skills: [
-      { name: "Figma UI/UX Design", level: 85 },
-      { name: "Responsive Typography", level: 95 },
-      { name: "Web Performance (Core Web Vitals)", level: 92 },
-      { name: "CI/CD & DevOps", level: 84 },
-    ],
+    code: "01",
+    title: "Languages & Databases",
+    summary: "Core programming foundation with strong problem-solving practice.",
+    items: ["Python", "Java", "C", "MySQL", "JavaScript (ES6+)"],
+  },
+  {
+    code: "02",
+    title: "Frontend Engineering",
+    summary: "Accessible, responsive interfaces built component-first.",
+    items: ["HTML5", "CSS3", "React.js", "Tailwind CSS", "Responsive Design"],
+  },
+  {
+    code: "03",
+    title: "Backend & APIs",
+    summary: "Server logic, data modelling and integration workflows.",
+    items: ["Node.js", "Express.js", "REST APIs", "Authentication", "MySQL Schemas"],
+  },
+  {
+    code: "04",
+    title: "AI, ML & Data (Basics)",
+    summary: "Applied fundamentals across models, vision and datasets.",
+    items: ["Machine Learning", "Computer Vision", "OpenCV", "Data Science", "NumPy & Pandas"],
+  },
+  {
+    code: "05",
+    title: "Tools & Platforms",
+    summary: "Everyday engineering workflow and delivery tooling.",
+    items: ["Git", "GitHub", "Linux", "Docker", "VS Code", "Postman"],
   },
 ];
 
 export const TOOLBELT = [
-  "Webpack",
-  "Vite",
-  "Drizzle ORM",
-  "Auth0",
-  "PWA Mechanics",
   "Git",
-  "Cypress",
-  "SEO Core",
-  "Tailwind v4",
-  "Babel",
-  "Vercel Cloud",
-  "Jest Engine",
+  "GitHub",
+  "Linux",
+  "Docker",
+  "MySQL Workbench",
+  "VS Code",
+  "Postman",
+  "Jupyter",
+  "OpenCV",
+  "Vite",
+  "npm",
+  "Figma",
 ];
+
+export type Achievement = {
+  code: string;
+  title: string;
+  org: string;
+  date: string;
+  result: string;
+  detail: string;
+  tags: string[];
+};
+
+export const ACHIEVEMENTS: Achievement[] = [
+  {
+    code: "A_01",
+    title: "Aurelion 24-Hour Hackathon",
+    org: "Karunya Deemed University — IEEE Computer Society & KITS ACM Student Chapter",
+    date: "Feb 2026",
+    result: "Top 12 Finalist",
+    detail:
+      "Secured a place in the top 12 teams of the 24-Hour Aurelion Hackathon, held as part of the 3-Day AI Innovation Bootcamp powered by ElevenLabs and co-sponsored by featherless.ai.",
+    tags: ["AI Innovation", "Hackathon", "24 Hours", "Team Build"],
+  },
+  {
+    code: "A_02",
+    title: "RoboFest Gujarat 5.0 Competition",
+    org: "Gujarat Council on Science & Technology (GUJCOST), DST — Government of Gujarat",
+    date: "Dec 2025",
+    result: "Round 2 Winner",
+    detail:
+      "Advanced as a Round 2 (Level-II Proof of Concept) winner at Senior Level in the category Autonomous Underwater Vehicle Robot, held at the International Automobile Centre of Excellence, Gandhinagar.",
+    tags: ["Autonomous Robotics", "AUV", "Proof of Concept", "Senior Level"],
+  },
+];
+
 
 export type Project = {
   spec: string;

@@ -25,10 +25,10 @@ export function Certifications() {
   return (
     <Section
       id="certifications"
-      label="Certifications & Milestones"
+      label="Certifications"
       title="46 verified technical credentials"
-      subtitle="Academic honors and specialization courses"
-      className="border-y border-border bg-surface-2/40"
+      subtitle="Specialisation courses, cloud tracks and industry certifications"
+      className="border-y border-border"
     >
       <div className="mb-10 flex flex-wrap gap-2">
         {FILTERS.map((f) => (
@@ -39,10 +39,10 @@ export function Certifications() {
               setExpanded(false);
             }}
             className={cn(
-              "rounded-md border px-3.5 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] transition-all duration-300",
+              "rounded-full border px-4 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] transition-all duration-300",
               filter === f
-                ? "border-signal bg-signal/15 text-signal"
-                : "border-border bg-card text-muted-foreground hover:border-signal/50 hover:text-foreground",
+                ? "border-signal bg-signal/12 text-signal"
+                : "border-border bg-card/60 text-muted-foreground hover:border-signal/50 hover:text-foreground",
             )}
           >
             {f}
@@ -53,13 +53,18 @@ export function Certifications() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((cert, i) => (
           <Reveal key={`${cert.issuer}-${cert.title}`} delay={(i % 6) * 60} className="scene-3d">
-            <article className="card-3d flex h-full flex-col justify-between rounded-xl border border-border bg-card p-5">
-              <div>
-                <p className="mono-label text-accent">{cert.issuer}</p>
+            <article className="cert-card glass flex h-full flex-col justify-between rounded-2xl p-5">
+              <div className="relative">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="mono-label text-signal">{cert.issuer}</p>
+                  <span className="mono-label text-muted-foreground/60">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
                 <h3 className="mt-3 font-display text-sm font-bold leading-snug">{cert.title}</h3>
               </div>
-              <div className="mt-5 flex items-end justify-between gap-3">
-                <span className="mono-label text-muted-foreground">DATE: {cert.date}</span>
+              <div className="relative mt-6 flex items-end justify-between gap-3">
+                <span className="mono-label text-muted-foreground">{cert.date}</span>
                 {cert.id ? (
                   <span className="mono-label max-w-[45%] truncate text-muted-foreground">
                     ID: {cert.id}
@@ -75,6 +80,7 @@ export function Certifications() {
           </Reveal>
         ))}
       </div>
+
 
       {all.length > COLLAPSED_COUNT ? (
         <div className="mt-10 flex justify-center">

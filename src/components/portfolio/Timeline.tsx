@@ -13,8 +13,9 @@ export function Timeline() {
   return (
     <Section
       id="timeline"
-      label="Journey & Timeline"
-      title="My education and professional background"
+      label="Experience & Education"
+      title="Professional and academic timeline"
+      subtitle="Internships, training programmes and undergraduate studies"
     >
       <div className="mb-10 flex flex-wrap gap-2">
         {FILTERS.map((f) => (
@@ -22,10 +23,10 @@ export function Timeline() {
             key={f}
             onClick={() => setFilter(f)}
             className={cn(
-              "rounded-md border px-3.5 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] transition-all duration-300",
+              "rounded-full border px-4 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] transition-all duration-300",
               filter === f
                 ? "border-signal bg-signal/15 text-signal"
-                : "border-border bg-card text-muted-foreground hover:border-signal/50 hover:text-foreground",
+                : "border-border bg-card/60 text-muted-foreground hover:border-signal/50 hover:text-foreground",
             )}
           >
             {f}
@@ -39,16 +40,16 @@ export function Timeline() {
           {entries.map((entry, i) => (
             <Reveal key={`${entry.org}-${entry.period}`} delay={i * 90} className="scene-3d">
               <div className="relative pl-12 sm:pl-16">
-                <span className="absolute left-0 top-4 grid h-8 w-8 place-items-center rounded-full border border-signal/50 bg-card text-signal sm:left-1">
+                <span className="absolute left-0 top-4 grid h-8 w-8 place-items-center rounded-full border border-signal/50 bg-card text-signal shadow-[var(--shadow-signal)] sm:left-1">
                   {entry.kind === "WORK" ? (
                     <Briefcase className="h-4 w-4" />
                   ) : (
                     <GraduationCap className="h-4 w-4" />
                   )}
                 </span>
-                <article className="card-3d rounded-2xl border border-border bg-card p-6">
+                <article className="cert-card glass rounded-2xl p-6">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="mono-label rounded border border-accent/40 bg-accent/10 px-2 py-1 text-accent">
+                    <span className="mono-label rounded-full border border-signal/40 bg-signal/10 px-2.5 py-1 text-signal">
                       {entry.kind}
                     </span>
                     <span className="mono-label text-muted-foreground">{entry.period}</span>

@@ -13,9 +13,10 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      label="Digital Creations"
-      title="Crafted with precision and fluid optimization"
-      className="border-y border-border bg-surface-2/40"
+      label="Selected Work"
+      title="Projects built end to end"
+      subtitle="Full-stack platforms, applied AI models and autonomous robotics prototypes"
+      className="border-y border-border"
     >
       <div className="mb-10 flex flex-wrap gap-2">
         {FILTERS.map((f) => (
@@ -23,10 +24,10 @@ export function Projects() {
             key={f}
             onClick={() => setFilter(f)}
             className={cn(
-              "rounded-md border px-3.5 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] transition-all duration-300",
+              "rounded-full border px-4 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] transition-all duration-300",
               filter === f
                 ? "border-signal bg-signal/15 text-signal"
-                : "border-border bg-card text-muted-foreground hover:border-signal/50 hover:text-foreground",
+                : "border-border bg-card/60 text-muted-foreground hover:border-signal/50 hover:text-foreground",
             )}
           >
             {f}
@@ -37,17 +38,17 @@ export function Projects() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((project, i) => (
           <Reveal key={project.spec} delay={i * 70} className="scene-3d">
-            <article className="card-3d group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6">
+            <article className="cert-card group glass flex h-full flex-col rounded-2xl p-6">
               <div
                 className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 aria-hidden
               />
               <div className="relative">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="mono-label text-accent">{project.spec} //</span>
+                  <span className="mono-label text-signal">{project.spec}</span>
                   <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-signal" />
                 </div>
-                <span className="mono-label mt-3 inline-block rounded border border-signal/40 bg-signal/10 px-2 py-1 text-signal">
+                <span className="mono-label mt-3 inline-block rounded-full border border-border bg-secondary/60 px-2.5 py-1 text-muted-foreground">
                   {project.category}
                 </span>
                 <h3 className="mt-4 font-display text-lg font-bold leading-snug">
@@ -60,12 +61,12 @@ export function Projects() {
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded border border-border bg-surface-2 px-2 py-1 font-mono text-[0.65rem] text-muted-foreground"
+                      className="rounded-md border border-border bg-secondary/60 px-2 py-1 font-mono text-[0.65rem] text-muted-foreground"
                     >
                       {tech}
                     </span>
                   ))}
-                  <span className="rounded border border-border bg-surface-2 px-2 py-1 font-mono text-[0.65rem] text-signal">
+                  <span className="rounded-md border border-border bg-secondary/60 px-2 py-1 font-mono text-[0.65rem] text-signal">
                     +{project.extra}
                   </span>
                 </div>
