@@ -17,7 +17,7 @@ export function Achievements() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         {ACHIEVEMENTS.map((item, i) => {
-          const Icon = ICONS[i % ICONS.length];
+          const Icon = ICONS[i % ICONS.length] ?? Trophy;
           return (
             <Reveal key={item.code} delay={i * 120} className="scene-3d">
               <article className="cert-card glass flex h-full flex-col rounded-2xl p-7">
