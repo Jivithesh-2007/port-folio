@@ -40,7 +40,6 @@ export function Projects() {
             <article className="card-3d group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6">
               <div
                 className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                style={{ backgroundImage: "var(--gradient-signal)", opacity: undefined }}
                 aria-hidden
               />
               <div className="relative">
