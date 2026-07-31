@@ -109,22 +109,39 @@ export function Hero() {
 
         <div className="scene-3d">
           <div ref={tiltRef} className="tilt-3d relative mx-auto max-w-sm">
-            <div className="spin-slow absolute -inset-8 rounded-full border border-dashed border-border" />
-            <div className="glass relative overflow-hidden rounded-3xl p-5">
-              <div className="mono-label flex items-center justify-between text-muted-foreground">
-                <span className="text-signal">Profile</span>
-                <span>01 / 01</span>
+            {/* orbiting rings + satellites around the portrait */}
+            <div className="spin-slow absolute -inset-10 rounded-full border border-dashed border-border" />
+            <div className="orbit-reverse absolute -inset-16 rounded-full border border-border/60" />
+            <div className="orbit-ring absolute -inset-16">
+              <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-signal shadow-[0_0_20px_var(--signal)]" />
+              <span className="absolute bottom-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-foreground/50" />
+            </div>
+            <div className="orbit-reverse absolute -inset-24 hidden sm:block">
+              <span className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-signal/70" />
+            </div>
+            <div className="pointer-events-none absolute -inset-6 -z-10 rounded-full bg-signal/10 blur-3xl breathe" />
+
+            <div className="glass group relative overflow-hidden rounded-3xl p-5">
+              <div className="pointer-events-none absolute inset-0 dot-matrix opacity-30" />
+              <div className="mono-label relative flex items-center justify-between text-muted-foreground">
+                <span className="inline-flex items-center gap-2 text-signal">
+                  <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-signal" />
+                  Profile
+                </span>
+                <span className="scan-line-label">01 / 01</span>
               </div>
-              <div className="layer-lift mt-4 overflow-hidden rounded-2xl border border-border bg-surface-2">
+              <div className="layer-lift relative mt-4 overflow-hidden rounded-2xl border border-border bg-surface-2">
                 <img
                   src={avatar.url}
                   alt="Portrait of Jivithesh A S, full stack developer and robotics enthusiast"
                   width={512}
                   height={512}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                 />
+                <span className="scan-sweep pointer-events-none absolute inset-x-0 h-24" />
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-transparent" />
               </div>
-              <div className="mt-4 flex items-end justify-between gap-3">
+              <div className="relative mt-4 flex items-end justify-between gap-3">
                 <div>
                   <p className="font-display text-lg font-bold">Jivithesh A S</p>
                   <p className="mono-label mt-1 text-muted-foreground">Coimbatore, India</p>
@@ -134,6 +151,7 @@ export function Hero() {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
