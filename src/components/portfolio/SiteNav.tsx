@@ -37,19 +37,19 @@ export function SiteNav() {
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-signal/40 bg-signal/10 font-mono text-sm font-bold text-signal">
               J
             </span>
-            <span className="truncate font-display text-sm font-bold tracking-[0.18em]">
+            <span className="shrink-0 font-display text-sm font-bold tracking-[0.1em]">
               JIVITHESH<span className="text-signal">.DEV</span>
             </span>
           </a>
 
           <div className="flex items-center gap-2">
-            <ul className="hidden items-center gap-1 lg:flex">
+            <ul className="hidden items-center gap-0.5 lg:flex">
               {NAV_LINKS.map((link) => (
                 <li key={link.id}>
                   <a
                     href={`#${link.id}`}
                     className={cn(
-                      "relative rounded-md px-3 py-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] transition-colors",
+                      "relative rounded-md px-2.5 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] transition-colors",
                       active === link.id
                         ? "text-signal"
                         : "text-muted-foreground hover:text-foreground",
