@@ -43,29 +43,27 @@ export function SiteNav() {
           </a>
 
 
-          <div className="flex items-center gap-2">
-            <ul className="hidden items-center gap-0.5 lg:flex">
-              {NAV_LINKS.map((link) => (
-                <li key={link.id}>
-                  <a
-                    href={`#${link.id}`}
-                    className={cn(
-                      "relative rounded-md px-2.5 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] transition-colors",
-                      active === link.id
-                        ? "text-signal"
-                        : "text-muted-foreground hover:text-foreground",
-                    )}
-                  >
-                    {link.label}
-                    {active === link.id ? (
-                      <span className="absolute inset-x-2 -bottom-0.5 h-px bg-signal" />
-                    ) : null}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <ul className="glass-soft hidden items-center gap-0.5 rounded-full px-2 py-1 lg:flex">
+            {NAV_LINKS.map((link) => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  className={cn(
+                    "relative block rounded-full px-3 py-1.5 font-mono text-[0.66rem] uppercase tracking-[0.14em] transition-all duration-300",
+                    active === link.id
+                      ? "bg-signal/12 text-signal"
+                      : "text-muted-foreground hover:bg-secondary/70 hover:text-foreground",
+                  )}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
+          <div className="flex shrink-0 items-center gap-2">
             <a
+
               href={resume.url}
               target="_blank"
               rel="noopener noreferrer"
