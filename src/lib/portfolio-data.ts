@@ -1,3 +1,13 @@
+import certRedHat from "@/assets/certs/redhat-rh124.png.asset.json";
+import certDcPython from "@/assets/certs/datacamp-python-fundamentals.png.asset.json";
+import certDcGit from "@/assets/certs/datacamp-git-fundamentals.png.asset.json";
+import certCiscoAi from "@/assets/certs/cisco-modern-ai.png.asset.json";
+import certCiscoJs from "@/assets/certs/cisco-js-essentials.png.asset.json";
+import certOpenCv from "@/assets/certs/opencv-bootcamp.png.asset.json";
+import certHelsinki from "@/assets/certs/elements-of-ai.png.asset.json";
+import certIbmData from "@/assets/certs/ibm-intro-data-concepts.png.asset.json";
+import achRobofest from "@/assets/certs/robofest-gujarat.png.asset.json";
+
 export const NAV_LINKS = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
@@ -111,6 +121,8 @@ export type Achievement = {
   result: string;
   detail: string;
   tags: string[];
+  image?: string;
+  highlights: string[];
 };
 
 export const ACHIEVEMENTS: Achievement[] = [
@@ -123,6 +135,12 @@ export const ACHIEVEMENTS: Achievement[] = [
     detail:
       "Secured a place in the top 12 teams of the 24-Hour Aurelion Hackathon, held as part of the 3-Day AI Innovation Bootcamp powered by ElevenLabs and co-sponsored by featherless.ai.",
     tags: ["AI Innovation", "Hackathon", "24 Hours", "Team Build"],
+    highlights: [
+      "Top 12 of the 24-Hour Aurelion Hackathon leaderboard.",
+      "Part of the 3-Day AI Innovation Bootcamp at Karunya Deemed University.",
+      "Powered by ElevenLabs, co-sponsored by featherless.ai.",
+      "Organised by the IEEE Computer Society and KITS ACM Student Chapter.",
+    ],
   },
   {
     code: "A_02",
@@ -133,6 +151,14 @@ export const ACHIEVEMENTS: Achievement[] = [
     detail:
       "Advanced as a Round 2 (Level-II Proof of Concept) winner at Senior Level in the category Autonomous Underwater Vehicle Robot, held at the International Automobile Centre of Excellence, Gandhinagar.",
     tags: ["Autonomous Robotics", "AUV", "Proof of Concept", "Senior Level"],
+    image: achRobofest.url,
+    highlights: [
+      "Round 2 (Level-II Proof of Concept) winner at Senior Level.",
+      "Category: Autonomous Underwater Vehicle Robot.",
+      "Held at the International Automobile Centre of Excellence, Gandhinagar (28–30 Dec 2025).",
+      "Organised by GUJCOST, Dept. of Science & Technology, Government of Gujarat.",
+      "Team of four, mentored by Dr. S. Jeba Priya, Karunya Institute of Technology and Sciences.",
+    ],
   },
 ];
 
@@ -141,81 +167,225 @@ export type Project = {
   spec: string;
   category: "FULLSTACK" | "AI & ROBOTICS" | "AI & ALGORITHMIC" | "FRONTEND";
   title: string;
+  tagline: string;
   description: string;
+  overview: string;
+  highlights: string[];
+  role: string;
+  status: string;
   stack: string[];
   extra: number;
+  extraStack: string[];
 };
 
 export const PROJECTS: Project[] = [
   {
     spec: "SPEC_01",
-    category: "AI & ROBOTICS",
-    title: "NIVIBOT – Autonomous Underwater Robot",
+    category: "FULLSTACK",
+    title: "SERPOracle – AI-Powered SEO Intelligence",
+    tagline: "AI-powered SEO analytics & competitor intelligence platform",
     description:
-      "Autonomous underwater robotic system capable of intelligent navigation and obstacle avoidance.",
-    stack: ["Python", "Machine Learning", "Decision Trees"],
-    extra: 5,
+      "AI-powered SEO analytics platform for rank tracking, keyword monitoring and competitor intelligence.",
+    overview:
+      "SERPOracle is an AI-powered SEO analytics platform that helps users analyse search engine rankings, monitor keyword performance, track competitors and generate actionable optimisation insights using AI-driven data analysis. It enables businesses to improve online visibility and make data-driven SEO decisions.",
+    highlights: [
+      "Tracks keyword rankings and search trends over time with historical comparisons.",
+      "Competitor performance monitoring across shared keyword sets.",
+      "AI-generated optimisation recommendations from ranking and content signals.",
+      "Dashboard-first reporting so non-technical teams can act on the data.",
+    ],
+    role: "Full-stack design, data pipeline and AI integration",
+    status: "Active build",
+    stack: ["React", "Node.js", "AI APIs"],
+    extra: 4,
+    extraStack: ["Express.js", "REST APIs", "Charting", "MySQL"],
   },
   {
     spec: "SPEC_02",
-    category: "FULLSTACK",
-    title: "BackBenchers – EdTech Quiz Platform",
+    category: "AI & ALGORITHMIC",
+    title: "EchoVerge – AI Mental Wellness & Emotion Analysis",
+    tagline: "NLP emotion detection with personalised wellness insights",
     description:
-      "Innovative web-based quiz platform transforming traditional learning into a gamified experience.",
-    stack: ["HTML5", "CSS3", "JavaScript"],
+      "AI emotion analysis platform that reads emotion from text and returns personalised wellness insights.",
+    overview:
+      "EchoVerge is an AI-based emotion analysis and mental wellness platform that detects emotions from user text using Natural Language Processing and provides personalised insights, mood tracking and supportive recommendations to promote emotional well-being.",
+    highlights: [
+      "NLP pipeline that classifies emotion signals from free-form user text.",
+      "Mood tracking timeline that surfaces patterns across entries.",
+      "Personalised, supportive recommendations tuned to detected emotion.",
+      "Machine learning refinements to raise detection accuracy and engagement.",
+    ],
+    role: "NLP modelling and full-stack implementation",
+    status: "Active build",
+    stack: ["Python", "NLP", "Machine Learning"],
     extra: 3,
+    extraStack: ["Scikit-learn", "React", "REST APIs"],
   },
   {
     spec: "SPEC_03",
-    category: "AI & ALGORITHMIC",
-    title: "Personalized Recommendation Engine",
+    category: "AI & ROBOTICS",
+    title: "NIVIBOT – Autonomous Underwater Robot",
+    tagline: "Autonomous navigation and obstacle avoidance underwater",
     description:
-      "Recommendation engine inspired by Netflix and Amazon calculating real-time preference matches.",
-    stack: ["JavaScript (ES6+)", "HTML5", "CSS3"],
-    extra: 3,
+      "Autonomous underwater robotic system capable of intelligent navigation and obstacle avoidance.",
+    overview:
+      "NIVIBOT is an autonomous underwater vehicle prototype built for the RoboFest Gujarat 5.0 competition. It combines sensor-driven decision logic with machine learning classification to navigate, hold depth and avoid obstacles without operator input.",
+    highlights: [
+      "Decision-tree based navigation logic driven by live sensor input.",
+      "Obstacle detection and avoidance routines tuned in test runs.",
+      "Advanced to Round 2 / Level-II Proof of Concept at Senior Level.",
+      "Built and tested as a four-member engineering team.",
+    ],
+    role: "Control logic and ML classification",
+    status: "Competition prototype",
+    stack: ["Python", "Machine Learning", "Decision Trees"],
+    extra: 5,
+    extraStack: ["OpenCV", "Sensor Fusion", "Arduino", "NumPy", "Embedded C"],
   },
   {
     spec: "SPEC_04",
     category: "FULLSTACK",
-    title: "AI-Powered Education Platform",
+    title: "BackBenchers – EdTech Quiz Platform",
+    tagline: "Gamified learning for classroom-scale quizzes",
     description:
-      "Full-stack AI-education platform generating personalized learning plans based on goals and skills.",
-    stack: ["Node.js", "Express.js", "HTML5"],
-    extra: 4,
+      "Innovative web-based quiz platform transforming traditional learning into a gamified experience.",
+    overview:
+      "BackBenchers turns revision into a game. Students move through timed question sets with instant feedback, streaks and score progression, while the structure keeps content easy for educators to extend.",
+    highlights: [
+      "Timed question flow with instant scoring and feedback.",
+      "Gamified streaks and progression to keep learners engaged.",
+      "Content structure designed for quick topic authoring.",
+      "Fully responsive layout for phone-first classroom use.",
+    ],
+    role: "Frontend architecture and interaction design",
+    status: "Shipped",
+    stack: ["HTML5", "CSS3", "JavaScript"],
+    extra: 3,
+    extraStack: ["LocalStorage", "Responsive UI", "Animations"],
   },
   {
     spec: "SPEC_05",
-    category: "FRONTEND",
-    title: "YouTube Clone – UI Replication",
+    category: "AI & ALGORITHMIC",
+    title: "Personalized Recommendation Engine",
+    tagline: "Real-time preference matching, Netflix-style",
     description:
-      "Front-end UI replication of the YouTube homepage focusing on pixel-perfect alignment.",
-    stack: ["HTML5", "CSS3", "Flexbox"],
-    extra: 2,
+      "Recommendation engine inspired by Netflix and Amazon calculating real-time preference matches.",
+    overview:
+      "A recommendation engine that scores catalogue items against a live user preference profile, ranking results in real time as the user interacts — an applied study of the logic behind Netflix and Amazon style discovery.",
+    highlights: [
+      "Weighted similarity scoring across multiple item attributes.",
+      "Real-time re-ranking as preferences shift during a session.",
+      "Transparent match percentages surfaced in the UI.",
+      "Zero-dependency implementation in vanilla ES6+.",
+    ],
+    role: "Algorithm design and interface",
+    status: "Shipped",
+    stack: ["JavaScript (ES6+)", "HTML5", "CSS3"],
+    extra: 3,
+    extraStack: ["Similarity Scoring", "DOM APIs", "State Handling"],
   },
   {
     spec: "SPEC_06",
-    category: "AI & ALGORITHMIC",
-    title: "AI Neural Core – Deep Learning",
+    category: "FULLSTACK",
+    title: "AI-Powered Education Platform",
+    tagline: "Personalised learning plans generated from goals",
     description:
-      "Advanced machine learning implementation exploring neural networks and deep learning architectures.",
-    stack: ["Python", "TensorFlow", "NumPy"],
-    extra: 3,
+      "Full-stack AI-education platform generating personalized learning plans based on goals and skills.",
+    overview:
+      "A full-stack platform that takes a learner's goals, current skill level and available time, then generates a structured study plan with milestones and resource suggestions.",
+    highlights: [
+      "Goal and skill intake that shapes the generated plan.",
+      "Milestone breakdown with pacing across weeks.",
+      "Express API layer separating generation logic from the UI.",
+      "Persisted plans so learners can resume progress.",
+    ],
+    role: "Backend logic and API integration",
+    status: "Shipped",
+    stack: ["Node.js", "Express.js", "HTML5"],
+    extra: 4,
+    extraStack: ["REST APIs", "MySQL", "Auth", "CSS3"],
   },
   {
     spec: "SPEC_07",
-    category: "FULLSTACK",
-    title: "Amazon Clone – E-Commerce Platform",
-    description: "Full-stack e-commerce application replicating Amazon's core functionality.",
-    stack: ["React", "Node.js", "Express"],
-    extra: 3,
+    category: "FRONTEND",
+    title: "YouTube Clone – UI Replication",
+    tagline: "Pixel-accurate layout study",
+    description:
+      "Front-end UI replication of the YouTube homepage focusing on pixel-perfect alignment.",
+    overview:
+      "A disciplined layout exercise rebuilding the YouTube homepage from scratch — grid behaviour, sidebar states and card density — to sharpen precision with pure CSS.",
+    highlights: [
+      "Responsive video grid matching original breakpoints.",
+      "Collapsible sidebar and header interaction states.",
+      "Flexbox and grid composition without frameworks.",
+      "Attention to spacing, typography scale and hover states.",
+    ],
+    role: "Frontend implementation",
+    status: "Shipped",
+    stack: ["HTML5", "CSS3", "Flexbox"],
+    extra: 2,
+    extraStack: ["CSS Grid", "Responsive Design"],
   },
   {
     spec: "SPEC_08",
+    category: "AI & ALGORITHMIC",
+    title: "AI Neural Core – Deep Learning",
+    tagline: "Neural network fundamentals, built from the ground up",
+    description:
+      "Advanced machine learning implementation exploring neural networks and deep learning architectures.",
+    overview:
+      "An exploration of neural network internals — layer composition, activation behaviour and training dynamics — implemented and benchmarked to build intuition beyond library abstractions.",
+    highlights: [
+      "Layered architectures trained on classification datasets.",
+      "Activation and optimiser comparisons with logged metrics.",
+      "Vectorised computation with NumPy for speed.",
+      "Reusable training loop structure for further experiments.",
+    ],
+    role: "Model implementation and evaluation",
+    status: "Research build",
+    stack: ["Python", "TensorFlow", "NumPy"],
+    extra: 3,
+    extraStack: ["Keras", "Matplotlib", "Pandas"],
+  },
+  {
+    spec: "SPEC_09",
+    category: "FULLSTACK",
+    title: "Amazon Clone – E-Commerce Platform",
+    tagline: "Cart-to-checkout commerce flow",
+    description: "Full-stack e-commerce application replicating Amazon's core functionality.",
+    overview:
+      "A full-stack commerce build covering catalogue browsing, cart state, and checkout flow with a React frontend against an Express API.",
+    highlights: [
+      "Product catalogue with search and category filtering.",
+      "Persistent cart state and quantity handling.",
+      "Express API endpoints for products and orders.",
+      "Componentised React UI with reusable primitives.",
+    ],
+    role: "Full-stack development",
+    status: "Shipped",
+    stack: ["React", "Node.js", "Express"],
+    extra: 3,
+    extraStack: ["REST APIs", "MySQL", "Responsive UI"],
+  },
+  {
+    spec: "SPEC_10",
     category: "FRONTEND",
     title: "Quiz Master – Interactive Quiz Application",
+    tagline: "Dynamic question generation with analytics",
     description: "Interactive quiz platform with dynamic question generation, scoring, and analytics.",
+    overview:
+      "A React quiz application with dynamically generated question sets, live scoring and a post-attempt analytics view highlighting weak areas.",
+    highlights: [
+      "Dynamic question generation across topic pools.",
+      "Redux-managed attempt state and scoring.",
+      "Post-quiz analytics summarising accuracy by topic.",
+      "Keyboard-friendly, accessible interaction model.",
+    ],
+    role: "Frontend architecture",
+    status: "Shipped",
     stack: ["React", "Redux", "HTML5"],
     extra: 3,
+    extraStack: ["Chart Rendering", "CSS3", "Component Design"],
   },
 ];
 
@@ -292,9 +462,22 @@ export type Certification = {
   date: string;
   id?: string;
   group: "AI & GenAI" | "Python & Data Science" | "DataCamp" | "Google & Cloud" | "Git & Frontend";
+  image?: string;
 };
 
-export const CERTIFICATIONS: Certification[] = [
+const CERT_IMAGES: Record<string, string> = {
+  "RED HAT|Red Hat System Administration": certRedHat.url,
+  "DATACAMP|Python Programming Fundamentals": certDcPython.url,
+  "DATACAMP|Git Fundamentals": certDcGit.url,
+  "CISCO|Introduction To Modern AI": certCiscoAi.url,
+  "CISCO|Javascript Essentials 1": certCiscoJs.url,
+  "OPENCV UNIVERSITY|OpenCV Bootcamp": certOpenCv.url,
+  "UNIVERSITY OF HELSINKI|Introduction to Artificial Intelligence": certHelsinki.url,
+  "IBM SKILLSBUILD|Introduction to Data Concepts": certIbmData.url,
+};
+
+const CERTIFICATION_LIST: Certification[] = [
+  { issuer: "IBM SKILLSBUILD", title: "Introduction to Data Concepts", date: "JUL 2026", id: "ALM-COURSE_4058922", group: "Python & Data Science" },
   { issuer: "EDUTA.ORG", title: "Claude AI for Beginners: A Simple Guide to Getting Started", date: "JUN 2026", group: "AI & GenAI" },
   { issuer: "IBM", title: "Web Development Basics", date: "MAY 2026", group: "Git & Frontend" },
   { issuer: "ANTHROPIC", title: "Claude 101", date: "MAY 2026", group: "AI & GenAI" },
@@ -342,3 +525,12 @@ export const CERTIFICATIONS: Certification[] = [
   { issuer: "KAGGLE", title: "Intro To Machine Learning", date: "AUG 2025", group: "Python & Data Science" },
   { issuer: "ORACLE", title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate", date: "AUG 2025", group: "Google & Cloud" },
 ];
+
+/** Certificates with a scan attached float to the front of the grid. */
+export const CERTIFICATIONS: Certification[] = CERTIFICATION_LIST.map((c) => {
+  const image = CERT_IMAGES[`${c.issuer}|${c.title}`];
+  return image ? { ...c, image } : c;
+});
+
+export const FEATURED_CERTIFICATIONS = CERTIFICATIONS.filter((c) => c.image);
+export const OTHER_CERTIFICATIONS = CERTIFICATIONS.filter((c) => !c.image);

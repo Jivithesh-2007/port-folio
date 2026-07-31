@@ -425,3 +425,138 @@
   );
   animation: spin-slow 6s linear infinite;
 }
+
+/* ---------- orbit / breathe / scan (hero profile) ---------- */
+
+@utility orbit-ring {
+  border-radius: 9999px;
+  animation: spin-slow 18s linear infinite;
+}
+
+@utility orbit-reverse {
+  border-radius: 9999px;
+  animation: spin-slow 26s linear infinite reverse;
+}
+
+@utility breathe {
+  animation: breathe 7s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.06);
+  }
+}
+
+@utility scan-sweep {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in oklab, var(--signal) 22%, transparent),
+    transparent
+  );
+  animation: scan-sweep 5s ease-in-out infinite;
+}
+
+@keyframes scan-sweep {
+  0% {
+    transform: translateY(-40%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(420%);
+    opacity: 0;
+  }
+}
+
+@utility scan-line-label {
+  animation: flicker 6s steps(1, end) infinite;
+}
+
+@keyframes flicker {
+  0%,
+  92%,
+  100% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 0.25;
+  }
+  96% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 0.4;
+  }
+}
+
+/* ---------- modal ---------- */
+
+@utility modal-backdrop {
+  animation: fade-in-soft 0.35s ease-out both;
+}
+
+@utility modal-panel {
+  animation: modal-in 0.5s var(--ease-out-expo) both;
+}
+
+@keyframes fade-in-soft {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- preloader (nothing-os boot) ---------- */
+
+@utility preloader {
+  transition:
+    opacity 0.45s ease-out,
+    filter 0.45s ease-out;
+  &[data-exiting="true"] {
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+@utility boot-letter {
+  animation: boot-letter 0.7s var(--ease-out-expo) both;
+}
+
+@keyframes boot-letter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) rotateX(-70deg);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+    filter: blur(0);
+  }
+}
