@@ -7,7 +7,7 @@ export function SiteFooter() {
             JIVITHESH<span className="text-signal">.DEV</span>
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Handcrafted with extreme precision and structural motion standards.
+            Full Stack Developer · AI/ML & Robotics · Coimbatore, India
           </p>
         </div>
         <p className="mono-label text-muted-foreground">© 2026 Jivithesh. All rights reserved.</p>
