@@ -11,21 +11,22 @@ export function Contact() {
   return (
     <Section
       id="contact"
-      label="Get In Touch"
-      title="Let's discuss collaboration & pipelines"
+      label="Contact"
+      title="Let’s build something together"
+      subtitle="Open to internships, collaborations and engineering conversations"
     >
       <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
         <Reveal className="scene-3d">
-          <div ref={tiltRef} className="tilt-3d surface-panel h-full rounded-2xl p-7">
+          <div ref={tiltRef} className="tilt-3d glass h-full rounded-3xl p-7">
             <p className="mono-label text-signal">Contact details</p>
             <h3 className="mt-4 font-display text-2xl font-bold">
-              Let's co-create the digital future.
+              Available for new opportunities.
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Whether you have an upcoming responsive project requiring complex UI animation or want
-              to talk micro-architectures, send me a ping!
+              Whether it is a full-stack build, an applied ML idea or a robotics prototype, I am
+              happy to talk through the problem and how I can help.
             </p>
-            <div className="layer-lift mt-8 rounded-xl border border-border bg-card p-4">
+            <div className="layer-lift mt-8 rounded-2xl border border-border bg-card/70 p-4">
               <p className="mono-label text-muted-foreground">Direct email</p>
               <a
                 href="mailto:jivithesh448@gmail.com"
@@ -45,19 +46,19 @@ export function Contact() {
               setSending(true);
               setTimeout(() => {
                 setSending(false);
-                toast.success("Transmission received", {
+                toast.success("Message sent", {
                   description: "Thanks for reaching out — I'll reply shortly.",
                 });
                 (event.target as HTMLFormElement).reset();
               }, 700);
             }}
-            className="rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-elevated)]"
+            className="glass rounded-3xl p-7"
           >
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="mono-label text-signal">Transmission mode</p>
+              <p className="mono-label text-signal">Send a message</p>
               <p className="mono-label flex items-center gap-1.5 text-muted-foreground">
                 <Lock className="h-3 w-3" />
-                SSL Secure // Port 443
+                Secure form
               </p>
             </div>
 
@@ -66,7 +67,7 @@ export function Contact() {
               <Field label="Email address" name="email" type="email" placeholder="jane@studio.com" />
             </div>
             <div className="mt-4">
-              <Field label="Message subject" name="subject" placeholder="Robotics collaboration" />
+              <Field label="Message subject" name="subject" placeholder="Internship / project collaboration" />
             </div>
             <div className="mt-4">
               <label className="mono-label text-muted-foreground" htmlFor="message">
@@ -77,17 +78,17 @@ export function Contact() {
                 name="message"
                 rows={5}
                 required
-                placeholder="Tell me about the system you want to build..."
-                className="mt-2 w-full resize-none rounded-md border border-input bg-surface-2 px-3.5 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-signal"
+                placeholder="Tell me about the project or role..."
+                className="mt-2 w-full resize-none rounded-xl border border-input bg-secondary/50 px-3.5 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-signal"
               />
             </div>
 
             <button
               type="submit"
               disabled={sending}
-              className="group mt-6 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 disabled:opacity-60"
+              className="group mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 disabled:opacity-60"
             >
-              {sending ? "Transmitting..." : "Transmit Message"}
+              {sending ? "Sending..." : "Send Message"}
               <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </button>
           </form>
@@ -119,7 +120,7 @@ function Field({
         type={type}
         required
         placeholder={placeholder}
-        className="mt-2 w-full rounded-md border border-input bg-surface-2 px-3.5 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-signal"
+        className="mt-2 w-full rounded-xl border border-input bg-secondary/50 px-3.5 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-signal"
       />
     </div>
   );
