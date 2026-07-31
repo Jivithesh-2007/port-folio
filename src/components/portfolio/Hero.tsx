@@ -1,13 +1,14 @@
-import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowDown, ArrowUpRight, FileText, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import avatar from "@/assets/avatar.png.asset.json";
+import resume from "@/assets/resume.pdf.asset.json";
 import { useTilt } from "@/hooks/use-motion";
 
 const ROLES = [
-  "an Open-Source Contributor",
-  "a Full Stack Developer",
-  "a Robotics Enthusiast",
-  "an AI/ML Explorer",
+  "Full Stack Developer",
+  "AI & Machine Learning Enthusiast",
+  "Computer Vision Explorer",
+  "Robotics Engineer in the Making",
 ];
 
 function useTypewriter(words: string[]) {
@@ -19,7 +20,7 @@ function useTypewriter(words: string[]) {
     const word = words[index % words.length] ?? "";
     const done = !deleting && text === word;
     const cleared = deleting && text === "";
-    const delay = done ? 1800 : cleared ? 220 : deleting ? 32 : 62;
+    const delay = done ? 1900 : cleared ? 220 : deleting ? 30 : 60;
 
     const timer = setTimeout(() => {
       if (done) return setDeleting(true);
@@ -39,74 +40,82 @@ function useTypewriter(words: string[]) {
 
 export function Hero() {
   const typed = useTypewriter(ROLES);
-  const tiltRef = useTilt<HTMLDivElement>(9);
+  const tiltRef = useTilt<HTMLDivElement>(8);
 
   return (
-    <section id="home" className="relative isolate overflow-hidden pb-24 pt-32 sm:pt-40">
-      <div className="absolute inset-0 -z-10 grid-backdrop" />
-      <div className="glow-orb float-slow -left-24 top-10 -z-10 h-80 w-80 bg-signal/40" />
-      <div className="glow-orb float-slow -right-16 top-40 -z-10 h-96 w-96 bg-accent/30 [animation-delay:2s]" />
+    <section id="home" className="relative isolate flex min-h-screen items-center overflow-hidden">
+      <div className="absolute inset-0 -z-10 dot-fade" />
+      <div className="glow-orb float-slow -left-32 top-24 -z-10 h-80 w-80 bg-signal/20" />
+      <div className="glow-orb float-slow -right-24 bottom-16 -z-10 h-96 w-96 bg-foreground/10 [animation-delay:2.5s]" />
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-5 pb-24 pt-32 sm:px-8 sm:pt-36 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-signal/40 bg-signal/10 px-3.5 py-1.5">
+          <div className="glass-soft inline-flex items-center gap-2.5 rounded-full px-3.5 py-1.5">
             <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-signal" />
-            <span className="mono-label text-signal">Available for global opportunities</span>
+            <span className="mono-label text-muted-foreground">
+              Open to internships & collaborations
+            </span>
           </div>
 
-          <h1 className="mt-7 text-4xl font-bold leading-[1.05] sm:text-6xl lg:text-7xl">
-            Hi, I am
+          <h1 className="mt-8 font-display text-[2.75rem] font-bold leading-[0.98] tracking-tight sm:text-7xl lg:text-[5.25rem]">
+            Jivithesh
             <br />
-            <span className="text-gradient">Jivithesh A S</span>
+            <span className="text-muted-foreground/60">A S</span>
+            <span className="text-signal">.</span>
           </h1>
 
-          <p className="mt-5 min-h-[2.2em] font-display text-xl text-muted-foreground sm:text-3xl">
-            I am{" "}
-            <span className="text-foreground">
-              {typed}
-              <span className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-[0.12em] animate-pulse bg-signal" />
-            </span>
+          <p className="mt-6 min-h-[1.8em] font-mono text-sm uppercase tracking-[0.2em] text-muted-foreground sm:text-base">
+            {typed}
+            <span className="ml-1 inline-block h-[0.95em] w-[2px] translate-y-[0.15em] animate-pulse bg-signal" />
           </p>
 
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Engineering intelligent full-stack software architectures &amp; autonomous robotic
-            systems. Undergraduate Computer Science and Engineering student at Karunya Institute of
-            Technology &amp; Sciences, passionate about software development, AI/ML, and building
-            autonomous intelligent systems.
+          <p className="mt-7 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Computer Science &amp; Engineering undergraduate at Karunya Institute of Technology and
+            Sciences. I design clean full-stack systems, apply machine learning and computer vision
+            fundamentals, and build autonomous robotics prototypes that solve real problems.
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-3">
+          <div className="mt-10 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground shadow-[var(--shadow-signal)] transition-transform duration-300 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
             >
-              Explore My Work
+              View Work
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
+              href={resume.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group glass inline-flex items-center gap-2 rounded-full px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] transition-all duration-300 hover:-translate-y-0.5 hover:text-signal"
+            >
+              <FileText className="h-4 w-4" />
+              View Resume
+            </a>
+            <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] transition-colors duration-300 hover:border-signal/60 hover:text-signal"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground transition-colors duration-300 hover:border-signal/60 hover:text-signal"
             >
               <Mail className="h-4 w-4" />
-              Get In Touch
+              Contact
             </a>
           </div>
 
           <div className="mt-14 flex items-center gap-3 text-muted-foreground">
             <ArrowDown className="h-4 w-4 animate-bounce" />
-            <span className="mono-label">Scroll down</span>
+            <span className="mono-label">Scroll to explore</span>
           </div>
         </div>
 
         <div className="scene-3d">
           <div ref={tiltRef} className="tilt-3d relative mx-auto max-w-sm">
-            <div className="spin-slow absolute -inset-6 rounded-[2rem] border border-dashed border-signal/30" />
-            <div className="surface-panel relative overflow-hidden rounded-2xl p-5">
+            <div className="spin-slow absolute -inset-8 rounded-full border border-dashed border-border" />
+            <div className="glass relative overflow-hidden rounded-3xl p-5">
               <div className="mono-label flex items-center justify-between text-muted-foreground">
-                <span className="text-signal">Available for opportunities</span>
-                <span>ID_01</span>
+                <span className="text-signal">Profile</span>
+                <span>01 / 01</span>
               </div>
-              <div className="layer-lift mt-4 overflow-hidden rounded-xl border border-border bg-surface-2">
+              <div className="layer-lift mt-4 overflow-hidden rounded-2xl border border-border bg-surface-2">
                 <img
                   src={avatar.url}
                   alt="Portrait of Jivithesh A S, full stack developer and robotics enthusiast"
@@ -115,11 +124,12 @@ export function Hero() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="mt-4">
-                <p className="font-display text-lg font-bold">Jivithesh A S</p>
-                <p className="mono-label mt-1 text-muted-foreground">
-                  IP: 142.250.190.46 // PROTOCOL: TRUE
-                </p>
+              <div className="mt-4 flex items-end justify-between gap-3">
+                <div>
+                  <p className="font-display text-lg font-bold">Jivithesh A S</p>
+                  <p className="mono-label mt-1 text-muted-foreground">Coimbatore, India</p>
+                </div>
+                <p className="mono-label text-signal">CGPA 9.32</p>
               </div>
             </div>
           </div>
