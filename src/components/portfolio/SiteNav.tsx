@@ -32,15 +32,16 @@ export function SiteNav() {
             : "border-b border-transparent",
         )}
       >
-        <nav className="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 sm:px-8">
-          <a href="#home" className="flex min-w-0 items-center gap-3">
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-signal/40 bg-signal/10 font-mono text-sm font-bold text-signal">
+        <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-5 py-4 sm:px-8">
+          <a href="#home" className="group flex shrink-0 items-center gap-2.5">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-signal/40 bg-signal/10 font-mono text-sm font-bold text-signal transition-transform duration-500 group-hover:rotate-[360deg]">
               J
             </span>
-            <span className="shrink-0 font-display text-sm font-bold tracking-[0.1em]">
+            <span className="hidden shrink-0 font-display text-sm font-bold tracking-[0.1em] sm:inline">
               JIVITHESH<span className="text-signal">.DEV</span>
             </span>
           </a>
+
 
           <div className="flex items-center gap-2">
             <ul className="hidden items-center gap-0.5 lg:flex">
