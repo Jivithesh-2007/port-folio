@@ -3,7 +3,7 @@ import { useTilt } from "@/hooks/use-motion";
 import { Reveal, Section } from "./Section";
 
 const SIGNALS = [
-  { k: "Institute", v: "Karunya IT&S" },
+  { k: "Institute", v: "Karunya University" },
   { k: "Programme", v: "B.Tech CSE" },
   { k: "CGPA", v: "9.38 / 10" },
   { k: "Base", v: "Coimbatore, IN" },
@@ -54,8 +54,8 @@ export function About() {
           <Reveal delay={80}>
             <h3 className="font-display text-2xl font-bold sm:text-3xl">Full Stack Developer, AI/ML &amp; Robotics</h3>
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              I am a Computer Science and Engineering undergraduate at Karunya Institute of Technology and Sciences,
-              maintaining a 9.32 CGPA while working across full-stack web development, applied machine learning and
+              I am a Computer Science and Engineering undergraduate at Karunya University,
+              maintaining a 9.38 CGPA while working across full-stack web development, applied machine learning and
               autonomous robotics.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">

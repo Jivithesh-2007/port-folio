@@ -20,7 +20,7 @@ export const NAV_LINKS = [
 ];
 
 export const STATS = [
-  { value: "9.32", label: "CGPA — B.Tech CSE" },
+  { value: "9.38", label: "CGPA — B.Tech CSE" },
   { value: "3", label: "Internships completed" },
   { value: "10+", label: "Engineering projects" },
   { value: "46", label: "Verified credentials" },
@@ -129,7 +129,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     code: "A_01",
     title: "Aurelion 24-Hour Hackathon",
-    org: "Karunya Deemed University — IEEE Computer Society & KITS ACM Student Chapter",
+    org: "Karunya University — IEEE Computer Society & KITS ACM Student Chapter",
     date: "Feb 2026",
     result: "Top 12 Finalist",
     detail:
@@ -137,7 +137,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     tags: ["AI Innovation", "Hackathon", "24 Hours", "Team Build"],
     highlights: [
       "Top 12 of the 24-Hour Aurelion Hackathon leaderboard.",
-      "Part of the 3-Day AI Innovation Bootcamp at Karunya Deemed University.",
+      "Part of the 3-Day AI Innovation Bootcamp at Karunya University.",
       "Powered by ElevenLabs, co-sponsored by featherless.ai.",
       "Organised by the IEEE Computer Society and KITS ACM Student Chapter.",
     ],
@@ -157,7 +157,7 @@ export const ACHIEVEMENTS: Achievement[] = [
       "Category: Autonomous Underwater Vehicle Robot.",
       "Held at the International Automobile Centre of Excellence, Gandhinagar (28–30 Dec 2025).",
       "Organised by GUJCOST, Dept. of Science & Technology, Government of Gujarat.",
-      "Team of four, mentored by Dr. S. Jeba Priya, Karunya Institute of Technology and Sciences.",
+      "Team of four, mentored by Dr. S. Jeba Priya, Karunya University.",
     ],
   },
 ];
@@ -435,7 +435,7 @@ export const TIMELINE: TimelineEntry[] = [
     org: "IT Training Hub – Karunya University",
     location: "Coimbatore, Tamil Nadu",
     summary:
-      "Enrolled in the IT Training Hub program at Karunya Institute of Technology and Sciences.",
+      "Enrolled in the IT Training Hub program at Karunya University.",
     points: [
       "Developing industry-relevant technical skills through structured training and hands-on lab sessions.",
       "Working on real-world problem statements with guidance from experienced faculty and mentors.",
@@ -445,12 +445,12 @@ export const TIMELINE: TimelineEntry[] = [
     kind: "EDUCATION",
     period: "Jun 2025 – Jun 2029",
     role: "B.Tech – Computer Science & Engineering",
-    org: "Karunya Institute of Technology and Sciences",
+    org: "Karunya University",
     location: "Coimbatore, Tamil Nadu",
     summary:
       "Undergraduate student in Computer Science and Engineering, driven by a passion for software development and emerging technologies.",
     points: [
-      "Academic Performance: Outstanding CGPA of 9.32.",
+      "Academic Performance: Outstanding CGPA of 9.38.",
       "Proactively learning full-stack paradigms, software logic flow, and system programming.",
     ],
   },
