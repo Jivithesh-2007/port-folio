@@ -102,7 +102,19 @@ export function SiteNav() {
                 </a>
               </li>
             ))}
+            <li className="mt-2 border-t border-border pt-3 sm:hidden">
+              <a
+                href={resume.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-signal"
+              >
+                <FileText className="h-3.5 w-3.5" />
+                Resume
+              </a>
+            </li>
           </ul>
+
         ) : null}
 
         <div
