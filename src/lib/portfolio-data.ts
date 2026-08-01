@@ -7,6 +7,7 @@ import certOpenCv from "@/assets/certs/opencv-bootcamp.png.asset.json";
 import certHelsinki from "@/assets/certs/elements-of-ai.png.asset.json";
 import certIbmData from "@/assets/certs/ibm-intro-data-concepts.png.asset.json";
 import achRobofest from "@/assets/certs/robofest-gujarat.png.asset.json";
+import { assetUrl } from "@/lib/asset-url";
 
 export const NAV_LINKS = [
   { id: "home", label: "Home" },
@@ -151,7 +152,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     detail:
       "Advanced as a Round 2 (Level-II Proof of Concept) winner at Senior Level in the category Autonomous Underwater Vehicle Robot, held at the International Automobile Centre of Excellence, Gandhinagar.",
     tags: ["Autonomous Robotics", "AUV", "Proof of Concept", "Senior Level"],
-    image: achRobofest.url,
+    image: assetUrl(achRobofest.url),
     highlights: [
       "Round 2 (Level-II Proof of Concept) winner at Senior Level.",
       "Category: Autonomous Underwater Vehicle Robot.",
@@ -466,14 +467,14 @@ export type Certification = {
 };
 
 const CERT_IMAGES: Record<string, string> = {
-  "RED HAT|Red Hat System Administration": certRedHat.url,
-  "DATACAMP|Python Programming Fundamentals": certDcPython.url,
-  "DATACAMP|Git Fundamentals": certDcGit.url,
-  "CISCO|Introduction To Modern AI": certCiscoAi.url,
-  "CISCO|Javascript Essentials 1": certCiscoJs.url,
-  "OPENCV UNIVERSITY|OpenCV Bootcamp": certOpenCv.url,
-  "UNIVERSITY OF HELSINKI|Introduction to Artificial Intelligence": certHelsinki.url,
-  "IBM SKILLSBUILD|Introduction to Data Concepts": certIbmData.url,
+  "RED HAT|Red Hat System Administration": assetUrl(certRedHat.url),
+  "DATACAMP|Python Programming Fundamentals": assetUrl(certDcPython.url),
+  "DATACAMP|Git Fundamentals": assetUrl(certDcGit.url),
+  "CISCO|Introduction To Modern AI": assetUrl(certCiscoAi.url),
+  "CISCO|Javascript Essentials 1": assetUrl(certCiscoJs.url),
+  "OPENCV UNIVERSITY|OpenCV Bootcamp": assetUrl(certOpenCv.url),
+  "UNIVERSITY OF HELSINKI|Introduction to Artificial Intelligence": assetUrl(certHelsinki.url),
+  "IBM SKILLSBUILD|Introduction to Data Concepts": assetUrl(certIbmData.url),
 };
 
 const CERTIFICATION_LIST: Certification[] = [
