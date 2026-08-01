@@ -124,7 +124,9 @@ export function Hero() {
             </div>
             <div className="pointer-events-none absolute -inset-6 -z-10 rounded-full bg-signal/10 blur-3xl breathe" />
 
-            <div className="glass group relative overflow-hidden rounded-3xl p-5">
+            <div className="glass group shine-hover float-slow relative overflow-hidden rounded-3xl p-5">
+              <div className="pointer-events-none absolute inset-0 ring-sweep opacity-15" />
+
               <div className="pointer-events-none absolute inset-0 dot-matrix opacity-30" />
               <div className="mono-label relative flex items-center justify-between text-muted-foreground">
                 <span className="inline-flex items-center gap-2 text-signal">
