@@ -2,6 +2,7 @@ import { ArrowDown, ArrowUpRight, FileText, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import avatar from "@/assets/avatar.png.asset.json";
 import resume from "@/assets/resume.pdf.asset.json";
+import { assetUrl } from "@/lib/asset-url";
 import { useTilt } from "@/hooks/use-motion";
 
 const ROLES = [
@@ -86,7 +87,7 @@ export function Hero() {
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href={resume.url}
+              href={assetUrl(resume.url)}
               target="_blank"
               rel="noopener noreferrer"
               className="group glass magnetic shine-hover inline-flex items-center gap-2 rounded-full px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] hover:text-signal"
@@ -137,7 +138,7 @@ export function Hero() {
               </div>
               <div className="layer-lift relative mt-4 overflow-hidden rounded-2xl border border-border bg-surface-2">
                 <img
-                  src={avatar.url}
+                  src={assetUrl(avatar.url)}
                   alt="Portrait of Jivithesh A S, full stack developer and robotics enthusiast"
                   width={512}
                   height={512}

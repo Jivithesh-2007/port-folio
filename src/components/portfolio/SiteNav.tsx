@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FileText, Menu, Moon, Sun, X } from "lucide-react";
 import resume from "@/assets/resume.pdf.asset.json";
+import { assetUrl } from "@/lib/asset-url";
 import { NAV_LINKS } from "@/lib/portfolio-data";
 import { useActiveSection, useScrollProgress } from "@/hooks/use-motion";
 import { useTheme } from "@/hooks/use-theme";
@@ -61,7 +62,7 @@ export function SiteNav() {
 
           <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
             <a
-              href={resume.url}
+              href={assetUrl(resume.url)}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden items-center gap-2 rounded-full border border-border px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:border-signal/60 hover:text-signal sm:inline-flex"
@@ -104,7 +105,7 @@ export function SiteNav() {
             ))}
             <li className="mt-2 border-t border-border pt-3 sm:hidden">
               <a
-                href={resume.url}
+                href={assetUrl(resume.url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-signal"
