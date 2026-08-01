@@ -8,6 +8,7 @@ import { Skills } from "@/components/portfolio/Skills";
 import { Projects } from "@/components/portfolio/Projects";
 import { Timeline } from "@/components/portfolio/Timeline";
 import { Achievements } from "@/components/portfolio/Achievements";
+import { LeetCode } from "@/components/portfolio/LeetCode";
 import { Certifications } from "@/components/portfolio/Certifications";
 import { Contact } from "@/components/portfolio/Contact";
 import { SiteFooter } from "@/components/portfolio/SiteFooter";
@@ -40,6 +41,11 @@ export const Route = createFileRoute("/")({
           email: "mailto:jivithesh448@gmail.com",
           alumniOf: "Karunya University",
           knowsAbout: ["Full Stack Development", "Machine Learning", "Robotics", "React", "Node.js"],
+          sameAs: [
+            "https://github.com/Jivithesh-2007/",
+            "https://www.linkedin.com/in/jivithesh/",
+            "https://leetcode.com/u/30aYsYXBXU/",
+          ],
         }),
       },
     ],
@@ -59,6 +65,7 @@ function Index() {
         <Achievements />
         <Timeline />
 
+        <LeetCode />
         <Certifications />
         <Contact />
       </main>
