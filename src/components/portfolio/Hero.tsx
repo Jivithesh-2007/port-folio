@@ -72,8 +72,8 @@ export function Hero() {
           </p>
 
           <p className="mt-7 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Computer Science &amp; Engineering undergraduate at Karunya Institute of Technology and
-            Sciences. I design clean full-stack systems, apply machine learning and computer vision
+            Computer Science &amp; Engineering undergraduate at Karunya University. I design clean
+            full-stack systems, apply machine learning and computer vision
             fundamentals, and build autonomous robotics prototypes that solve real problems.
           </p>
 
