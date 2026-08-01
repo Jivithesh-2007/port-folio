@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Lock, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Lock, Mail, Send, SquareCode } from "lucide-react";
+import { SOCIAL_LINKS } from "@/lib/portfolio-data";
 import { toast } from "sonner";
 import { useTilt } from "@/hooks/use-motion";
 import { Reveal, Section } from "./Section";
@@ -35,6 +36,30 @@ export function Contact() {
                 <Mail className="h-4 w-4 shrink-0 text-signal" />
                 <span className="truncate">jivithesh448@gmail.com</span>
               </a>
+            </div>
+
+            <div className="mt-4 grid gap-3">
+              {SOCIAL_LINKS.filter((link) => link.label !== "Email").map((link) => {
+                const Icon =
+                  link.label === "GitHub" ? Github : link.label === "LinkedIn" ? Linkedin : SquareCode;
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="layer-lift group flex items-center gap-3 rounded-2xl border border-border bg-card/70 p-4 transition-colors hover:border-signal/60"
+                  >
+                    <Icon className="h-4 w-4 shrink-0 text-signal" />
+                    <span className="min-w-0">
+                      <span className="mono-label block text-muted-foreground">{link.label}</span>
+                      <span className="mt-1 block truncate text-sm font-medium transition-colors group-hover:text-signal">
+                        {link.handle}
+                      </span>
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </Reveal>
