@@ -1,33 +1,38 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const NAME = "JIVITHESH";
 
 /** Nothing OS style boot sequence: dot-matrix name reveal + hairline progress. */
 export function Preloader() {
-  const [mounted, setMounted] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [done, setDone] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const frame = useRef(0);
 
   useEffect(() => {
-    setMounted(true);
     const start = performance.now();
-    const duration = 1750;
-    let frame = 0;
+    const duration = 2200;
 
     const tick = () => {
       const t = Math.min(1, (performance.now() - start) / duration);
       setProgress(t);
       if (t < 1) {
-        frame = requestAnimationFrame(tick);
+        frame.current = requestAnimationFrame(tick);
       } else {
-        setTimeout(() => setDone(true), 420);
+        setTimeout(() => setHidden(true), 650);
       }
     };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
+    frame.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame.current);
   }, []);
 
-  if (!mounted || done) return null;
+  useEffect(() => {
+    document.body.style.overflow = hidden ? "" : "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [hidden]);
+
+  if (hidden) return null;
 
   const pct = Math.round(progress * 100);
 
@@ -39,6 +44,8 @@ export function Preloader() {
     >
       <div className="pointer-events-none absolute inset-0 dot-matrix opacity-40" />
       <div className="glow-orb float-slow left-1/2 top-1/2 h-[38rem] w-[38rem] -translate-x-1/2 -translate-y-1/2 bg-signal/12" />
+      <div className="orbit-ring pointer-events-none absolute h-[26rem] w-[26rem] border border-dashed border-border" />
+      <div className="orbit-reverse pointer-events-none absolute h-[34rem] w-[34rem] border border-border/50" />
 
       <div className="relative w-full max-w-md px-8 text-center">
         <p className="mono-label text-muted-foreground">Portfolio · Boot</p>
@@ -48,7 +55,7 @@ export function Preloader() {
             <span
               key={`${char}-${i}`}
               className="boot-letter inline-block"
-              style={{ animationDelay: `${i * 70}ms` }}
+              style={{ animationDelay: `${i * 90}ms` }}
             >
               {char}
             </span>
@@ -59,7 +66,7 @@ export function Preloader() {
 
         <div className="mt-10 h-px w-full overflow-hidden bg-border">
           <div
-            className="h-full origin-left bg-signal"
+            className="h-full origin-left bg-signal transition-transform duration-100 ease-linear"
             style={{ transform: `scaleX(${progress})` }}
           />
         </div>
