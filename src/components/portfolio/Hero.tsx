@@ -44,13 +44,15 @@ export function Hero() {
 
   return (
     <section id="home" className="relative isolate flex min-h-screen items-center overflow-hidden">
+      <div className="absolute inset-0 -z-10 drift-grid" />
       <div className="absolute inset-0 -z-10 dot-fade" />
       <div className="glow-orb float-slow -left-32 top-24 -z-10 h-80 w-80 bg-signal/20" />
-      <div className="glow-orb float-slow -right-24 bottom-16 -z-10 h-96 w-96 bg-foreground/10 [animation-delay:2.5s]" />
+      <div className="glow-orb float-fast -right-24 bottom-16 -z-10 h-96 w-96 bg-foreground/10 [animation-delay:2.5s]" />
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-5 pb-24 pt-32 sm:px-8 sm:pt-36 lg:grid-cols-[1.1fr_0.9fr]">
-        <div>
-          <div className="glass-soft inline-flex items-center gap-2.5 rounded-full px-3.5 py-1.5">
+        <div className="rise-in">
+          <div className="glass-soft magnetic inline-flex items-center gap-2.5 rounded-full px-3.5 py-1.5">
+
             <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-signal" />
             <span className="mono-label text-muted-foreground">
               Open to internships & collaborations
@@ -78,7 +80,7 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
+              className="group magnetic shine-hover inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-primary-foreground"
             >
               View Work
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -87,11 +89,12 @@ export function Hero() {
               href={resume.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group glass inline-flex items-center gap-2 rounded-full px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] transition-all duration-300 hover:-translate-y-0.5 hover:text-signal"
+              className="group glass magnetic shine-hover inline-flex items-center gap-2 rounded-full px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] hover:text-signal"
             >
               <FileText className="h-4 w-4" />
               View Resume
             </a>
+
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground transition-colors duration-300 hover:border-signal/60 hover:text-signal"
