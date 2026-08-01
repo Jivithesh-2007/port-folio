@@ -16,8 +16,16 @@ export const NAV_LINKS = [
   { id: "projects", label: "Projects" },
   { id: "achievements", label: "Achievements" },
   { id: "timeline", label: "Timeline" },
+  { id: "leetcode", label: "LeetCode" },
   { id: "certifications", label: "Certifications" },
   { id: "contact", label: "Contact" },
+];
+
+export const SOCIAL_LINKS = [
+  { label: "GitHub", handle: "Jivithesh-2007", href: "https://github.com/Jivithesh-2007/" },
+  { label: "LinkedIn", handle: "in/jivithesh", href: "https://www.linkedin.com/in/jivithesh/" },
+  { label: "LeetCode", handle: "30aYsYXBXU", href: "https://leetcode.com/u/30aYsYXBXU/" },
+  { label: "Email", handle: "jivithesh448@gmail.com", href: "mailto:jivithesh448@gmail.com" },
 ];
 
 export const STATS = [
