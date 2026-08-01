@@ -32,24 +32,22 @@ export function SiteNav() {
             : "border-b border-transparent",
         )}
       >
-        <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-5 py-4 sm:px-8">
-          <a href="#home" className="group flex shrink-0 items-center gap-2.5">
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-signal/40 bg-signal/10 font-mono text-sm font-bold text-signal transition-transform duration-500 group-hover:rotate-[360deg]">
+        <nav className="mx-auto flex w-full max-w-5xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4">
+          <a href="#home" className="group flex min-w-0 shrink-0 items-center gap-2">
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-signal/40 bg-signal/10 font-mono text-xs font-bold text-signal transition-transform duration-500 group-hover:rotate-[360deg] sm:h-9 sm:w-9 sm:text-sm">
               J
             </span>
-            <span className="hidden shrink-0 font-display text-sm font-bold tracking-[0.1em] sm:inline">
+            <span className="truncate font-display text-[0.8rem] font-bold tracking-[0.08em] sm:text-sm sm:tracking-[0.1em]">
               JIVITHESH<span className="text-signal">.DEV</span>
             </span>
           </a>
-
-
-          <ul className="glass-soft hidden items-center gap-0.5 rounded-full px-2 py-1 lg:flex">
+          <ul className="glass-soft hidden items-center gap-0.5 rounded-full px-1.5 py-1 lg:flex">
             {NAV_LINKS.map((link) => (
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
                   className={cn(
-                    "relative block rounded-full px-3 py-1.5 font-mono text-[0.66rem] uppercase tracking-[0.14em] transition-all duration-300",
+                    "relative block rounded-full px-2.5 py-1.5 font-mono text-[0.62rem] uppercase tracking-[0.1em] transition-all duration-300 xl:px-3 xl:text-[0.66rem] xl:tracking-[0.14em]",
                     active === link.id
                       ? "bg-signal/12 text-signal"
                       : "text-muted-foreground hover:bg-secondary/70 hover:text-foreground",
@@ -61,13 +59,12 @@ export function SiteNav() {
             ))}
           </ul>
 
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
             <a
-
               href={resume.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center gap-2 rounded-full border border-border px-3.5 py-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:border-signal/60 hover:text-signal sm:inline-flex"
+              className="hidden items-center gap-2 rounded-full border border-border px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:border-signal/60 hover:text-signal sm:inline-flex"
             >
               <FileText className="h-3.5 w-3.5" />
               Resume
@@ -76,7 +73,7 @@ export function SiteNav() {
             <button
               onClick={toggle}
               aria-label="Toggle color theme"
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border bg-card/70 text-foreground transition-all duration-300 hover:border-signal/60 hover:text-signal"
+              className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border bg-card/70 text-foreground transition-all duration-300 hover:border-signal/60 hover:text-signal sm:h-9 sm:w-9"
             >
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
@@ -84,11 +81,12 @@ export function SiteNav() {
             <button
               onClick={() => setOpen((v) => !v)}
               aria-label="Toggle navigation"
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border bg-card/70 lg:hidden"
+              className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border bg-card/70 sm:h-9 sm:w-9 lg:hidden"
             >
               {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
           </div>
+
         </nav>
 
         {open ? (
@@ -104,7 +102,19 @@ export function SiteNav() {
                 </a>
               </li>
             ))}
+            <li className="mt-2 border-t border-border pt-3 sm:hidden">
+              <a
+                href={resume.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-signal"
+              >
+                <FileText className="h-3.5 w-3.5" />
+                Resume
+              </a>
+            </li>
           </ul>
+
         ) : null}
 
         <div
