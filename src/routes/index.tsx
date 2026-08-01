@@ -14,7 +14,7 @@ import { SiteFooter } from "@/components/portfolio/SiteFooter";
 
 const TITLE = "Jivithesh A S — Full Stack Developer & Robotics Engineer";
 const DESCRIPTION =
-  "Portfolio of Jivithesh A S: full-stack web architectures, AI/ML models and autonomous robotic systems. CSE undergraduate at Karunya Institute of Technology & Sciences.";
+  "Portfolio of Jivithesh A S: full-stack web architectures, AI/ML models and autonomous robotic systems. CSE undergraduate at Karunya University.";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
           name: "Jivithesh A S",
           jobTitle: "Full Stack Developer & Robotics Enthusiast",
           email: "mailto:jivithesh448@gmail.com",
-          alumniOf: "Karunya Institute of Technology and Sciences",
+          alumniOf: "Karunya University",
           knowsAbout: ["Full Stack Development", "Machine Learning", "Robotics", "React", "Node.js"],
         }),
       },

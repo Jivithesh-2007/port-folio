@@ -151,7 +151,7 @@ export function Hero() {
                   <p className="font-display text-lg font-bold">Jivithesh A S</p>
                   <p className="mono-label mt-1 text-muted-foreground">Coimbatore, India</p>
                 </div>
-                <p className="mono-label text-signal">CGPA 9.32</p>
+                <p className="mono-label text-signal">CGPA 9.38</p>
               </div>
             </div>
           </div>
