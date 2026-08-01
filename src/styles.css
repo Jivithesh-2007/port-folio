@@ -560,3 +560,98 @@
     filter: blur(0);
   }
 }
+
+/* ---------- extra depth / motion utilities ---------- */
+
+@utility float-fast {
+  animation: float-slow 5.5s ease-in-out infinite;
+}
+
+@utility tilt-deep {
+  transform-style: preserve-3d;
+  transition: transform 0.7s var(--ease-out-expo);
+  will-change: transform;
+  &:hover {
+    transform: perspective(1000px) rotateX(6deg) rotateY(-8deg) translateZ(24px);
+  }
+}
+
+@utility shine-hover {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 40%,
+      color-mix(in oklab, var(--foreground) 14%, transparent) 50%,
+      transparent 60%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.8s var(--ease-out-expo);
+    pointer-events: none;
+  }
+  &:hover::after {
+    transform: translateX(120%);
+  }
+}
+
+@utility magnetic {
+  transition:
+    transform 0.35s var(--ease-out-expo),
+    box-shadow 0.35s var(--ease-out-expo);
+  &:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: var(--shadow-signal);
+  }
+}
+
+@utility drift-grid {
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  animation: drift-grid 26s linear infinite;
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 30%, black, transparent 100%);
+}
+
+@keyframes drift-grid {
+  to {
+    background-position: 64px 64px;
+  }
+}
+
+@utility glow-underline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: var(--signal);
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@utility rise-in {
+  animation: rise-in 0.9s var(--ease-out-expo) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px) rotateX(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
