@@ -5,7 +5,7 @@ import { Reveal, Section } from "./Section";
 const SIGNALS = [
   { k: "Institute", v: "Karunya IT&S" },
   { k: "Programme", v: "B.Tech CSE" },
-  { k: "CGPA", v: "9.32 / 10" },
+  { k: "CGPA", v: "9.38 / 10" },
   { k: "Base", v: "Coimbatore, IN" },
   { k: "Focus", v: "Web · AI/ML · Robotics" },
 ];
@@ -46,28 +46,22 @@ export function About() {
               ))}
             </ul>
 
-            <p className="mono-label layer-lift relative mt-6 text-signal">
-              Full Stack · AI/ML · Robotics
-            </p>
+            <p className="mono-label layer-lift relative mt-6 text-signal">Full Stack · AI/ML · Robotics</p>
           </div>
         </Reveal>
 
-
         <div>
           <Reveal delay={80}>
-            <h3 className="font-display text-2xl font-bold sm:text-3xl">
-              Full Stack Developer, AI/ML &amp; Robotics
-            </h3>
+            <h3 className="font-display text-2xl font-bold sm:text-3xl">Full Stack Developer, AI/ML &amp; Robotics</h3>
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              I am a Computer Science and Engineering undergraduate at Karunya Institute of
-              Technology and Sciences, maintaining a 9.32 CGPA while working across full-stack web
-              development, applied machine learning and autonomous robotics.
+              I am a Computer Science and Engineering undergraduate at Karunya Institute of Technology and Sciences,
+              maintaining a 9.32 CGPA while working across full-stack web development, applied machine learning and
+              autonomous robotics.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              My focus is on writing clear, maintainable code: structured backends in Node.js and
-              MySQL, accessible React interfaces, and Python-based ML and computer vision work. I
-              learn through building — internships, hackathons and national robotics competitions
-              have shaped how I ship under real constraints.
+              My focus is on writing clear, maintainable code: structured backends in Node.js and MySQL, accessible
+              React interfaces, and Python-based ML and computer vision work. I learn through building — internships,
+              hackathons and national robotics competitions have shaped how I ship under real constraints.
             </p>
           </Reveal>
 
