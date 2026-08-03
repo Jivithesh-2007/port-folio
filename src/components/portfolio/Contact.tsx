@@ -88,8 +88,8 @@ export function Contact() {
             </div>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <Field label="Your name" name="name" placeholder="Jane Doe" />
-              <Field label="Email address" name="email" type="email" placeholder="jane@studio.com" />
+              <Field label="Your name" name="name" placeholder="Your name " />
+              <Field label="Email address" name="email" type="email" placeholder="namwe@gmail.com" />
             </div>
             <div className="mt-4">
               <Field label="Message subject" name="subject" placeholder="Internship / project collaboration" />
@@ -103,7 +103,7 @@ export function Contact() {
                 name="message"
                 rows={5}
                 required
-                placeholder="Tell me about the project or role..."
+                placeholder="Tell me about the project or role or about myself ...."
                 className="mt-2 w-full resize-none rounded-xl border border-input bg-secondary/50 px-3.5 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-signal"
               />
             </div>
